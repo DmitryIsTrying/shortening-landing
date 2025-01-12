@@ -1,0 +1,25 @@
+.common {
+  cursor: pointer;
+  padding: 10px 25px;
+  border-radius: 32px;
+  border: none;
+  transition: opacity 0.3s ease;
+  display: flex;
+  width: fit-content;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: var(--font-weight-large);
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.CLEAR {
+  background-color: var(--bg-color);
+  color: var(--neutral-grayish-violet);
+}
+
+.FULLCYAN {
+  background-color: var(--primary-cyan);
+  color: white;
+}

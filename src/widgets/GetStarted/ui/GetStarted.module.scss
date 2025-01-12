@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 150px 0;
+  position: relative;
+}
+
+.title {
+  color: var(--neutral-blue);
+  font-size: 60px;
+  line-height: 68px;
+}
+
+.text {
+  color: var(--neutral-grayish-violet);
+  margin-bottom: 15px;
+  font-size: 26px;
+  line-height: 34px;
+}
+
+.backgroundImage {
+  position: absolute;
+  right: -200px;
+  top: 50px;
+}

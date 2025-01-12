@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  gap: 150px;
+}
+
+.navigation {
+  display: flex;
+  gap: 50px;
+}
+.item_nav {
+  list-style: none;
+  color: var(--neutral-grayish-violet);
+  font-weight: var(--font-weight-large);
+
+  a {
+    text-decoration: none;
+    color: var(--neutral-grayish-violet);
+    transition: color 0.3s ease;
+    &:hover {
+      color: var(--neutral-dark-violet);
+    }
+  }
+}

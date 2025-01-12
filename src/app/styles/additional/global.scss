@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,500;1,700&display=swap");
+
+:root {
+  /* Шрифты */
+  --font-family-main: "Poppins", serif;
+  --font-weight-medium: 500;
+  --font-weight-large: 700;
+
+  /* Размеры и стили для текста */
+  --font-size-m: 10px;
+  --font-line-m: 18px;
+  --font-m: var(--font-weight-medium) var(--font-size-m) / var(--font-line-m)
+    var(--font-family-main);
+
+  --font-size-l: 18px;
+  --font-line-l: 26px;
+  --font-l: var(--font-weight-medium) var(--font-size-l) / var(--font-line-l)
+    var(--font-family-main);
+}

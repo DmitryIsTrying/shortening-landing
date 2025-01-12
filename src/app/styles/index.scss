@@ -1,0 +1,19 @@
+@use "./themes/dark.scss";
+@use "./themes/light.scss";
+@use "./additional/global.scss";
+@use "./additional/reset.scss";
+
+.app {
+  font: var(--font-l);
+  background: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  min-width: 320px;
+  overflow: hidden;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1600px;
+  padding: 0 100px;
+}

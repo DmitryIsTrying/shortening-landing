@@ -1,0 +1,13 @@
+export { default as BoostDesktop } from "./svg/bg-boost-desktop.svg?react";
+export { default as BoostMobile } from "./svg/bg-boost-mobile.svg?react";
+export { default as ShortenDesktop } from "./svg/bg-shorten-desktop.svg?react";
+export { default as ShortenMobile } from "./svg/bg-shorten-mobile.svg?react";
+export { default as BrandRecognition } from "./svg/icon-brand-recognition.svg?react";
+export { default as DetailedRecords } from "./svg/icon-detailed-records.svg?react";
+export { default as FullyCustomizable } from "./svg/icon-fully-customizable.svg?react";
+export { default as IllustrationWorking } from "./svg/illustration-working.svg?react";
+export { default as FacebookLogo } from "./svg/icon-facebook.svg?react";
+export { default as InstagramLogo } from "./svg/icon-instagram.svg?react";
+export { default as PinterestLogo } from "./svg/icon-pinterest.svg?react";
+export { default as TwitterLogo } from "./svg/icon-twitter.svg?react";
+export { default as Logo } from "./svg/logo.svg?react";
