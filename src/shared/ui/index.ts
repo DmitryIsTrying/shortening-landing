@@ -1,3 +1,3 @@
+export { InputTheme, Input } from "./Input/Input";
 export { LogoType } from "./Logo/Logo";
-export { ButtonTheme } from "./Button/Button";
-export { Button } from "./Button/Button";
+export { ButtonTheme, Button } from "./Button/Button";

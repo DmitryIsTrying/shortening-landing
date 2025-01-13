@@ -4,9 +4,9 @@ import { Navigation } from "./navigation/Navigation";
 
 export const Header = () => {
   return (
-    <div className={cls.header}>
+    <header className={cls.header}>
       <Navigation />
       <AuthMoved />
-    </div>
+    </header>
   );
 };

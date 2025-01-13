@@ -1,0 +1,11 @@
+.container {
+  background-color: var(--neutral-dark-violet);
+}
+.logo {
+  transition: color 0.3s ease;
+  cursor: pointer;
+  color: var(--bg-color);
+  &:hover {
+    color: var(--primary-cyan);
+  }
+}

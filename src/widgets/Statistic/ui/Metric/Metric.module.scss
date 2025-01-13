@@ -1,0 +1,16 @@
+.bgCircle {
+  background-color: var(--neutral-blue);
+  width: fit-content;
+  display: flex;
+  padding: 18px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  transform: translateY(-50%);
+}
+
+@media screen and (max-width: 679px) {
+  .bgCircle {
+    padding: 12px;
+  }
+}

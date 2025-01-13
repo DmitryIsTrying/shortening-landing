@@ -17,3 +17,18 @@
   max-width: 1600px;
   padding: 0 100px;
 }
+
+.violet {
+  background-color: var(--neutral-gray);
+  padding: 200px 100px;
+  max-width: unset;
+}
+
+@media screen and (max-width: 975px) {
+  .container {
+    padding: 0 15px;
+  }
+  .violet {
+    padding: 150px 15px;
+  }
+}

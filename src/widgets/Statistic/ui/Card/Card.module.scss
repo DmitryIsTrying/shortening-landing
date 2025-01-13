@@ -1,0 +1,30 @@
+.containerInfo {
+  padding: 50px 40px;
+  position: relative;
+  background-color: var(--bg-color);
+  border-radius: 5px;
+  max-width: 300px;
+}
+.titleInfo {
+  font: var(--font-l);
+  color: var(--neutral-blue);
+  white-space: nowrap;
+}
+.textInfo {
+  font: var(--font-m);
+  color: var(--neutral-grayish-violet);
+}
+.iconStatistic {
+  width: 48px;
+  height: 48px;
+}
+
+@media screen and (max-width: 679px) {
+  .containerInfo {
+    padding: 25px 20px;
+  }
+  .iconStatistic {
+    width: 24px;
+    height: 24px;
+  }
+}

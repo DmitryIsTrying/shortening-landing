@@ -1,0 +1,72 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.textContainer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.titleText {
+  color: var(--neutral-dark-violet);
+  font: var(--font-xxl);
+}
+.textText {
+  color: var(--neutral-blue);
+  font: var(--font-l);
+}
+.containerBlocks {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin-top: 100px;
+  position: relative;
+}
+.containerBlocks::before {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  content: "";
+  height: 8px;
+  width: 800px;
+  background-color: var(--primary-cyan);
+}
+.secondCard {
+  transform: translateY(50px);
+}
+.thirdCard {
+  transform: translateY(100px);
+}
+
+@media screen and (max-width: 1200px) {
+  .containerBlocks::before {
+    top: 20%;
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 669px) {
+  .containerBlocks::before {
+    width: 8px;
+    height: 300px;
+    top: 50%;
+  }
+}
+
+@media screen and (max-width: 679px) {
+  .containerBlocks {
+    margin-top: 50px;
+    gap: 40px;
+  }
+  .secondCard {
+    transform: translateY(0);
+  }
+  .thirdCard {
+    transform: translateY(0);
+  }
+}

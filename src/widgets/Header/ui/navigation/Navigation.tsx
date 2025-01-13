@@ -5,7 +5,7 @@ import { classNames } from "@shared/lib";
 export const Navigation = () => {
   return (
     <div className={classNames(cls.container)}>
-      <LogoType />
+      <LogoType fill="#34313D" />
       <nav className={classNames(cls.navigation)}>
         <li className={classNames(cls.item_nav)}>
           <a href="#Features">Features</a>

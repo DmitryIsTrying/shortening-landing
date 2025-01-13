@@ -1,26 +1,79 @@
 .container {
+  padding: 150px 0;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.textWrapper {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 150px 0;
-  position: relative;
 }
 
 .title {
   color: var(--neutral-blue);
-  font-size: 60px;
-  line-height: 68px;
+  font: var(--font-xxl);
 }
 
 .text {
   color: var(--neutral-grayish-violet);
   margin-bottom: 15px;
-  font-size: 26px;
-  line-height: 34px;
+  font: var(--font-xl);
 }
 
 .backgroundImage {
-  position: absolute;
-  right: -200px;
-  top: 50px;
+  position: relative;
+  transform: translateX(100px);
+}
+
+.bgcSizeImage {
+  max-width: 100%; /* Максимальная ширина — 100% от родительского контейнера */
+  width: 100%;
+  min-width: 700px;
+  height: auto; /* Высота изменяется пропорционально */
+  object-fit: contain; /* Вписывает изображение целиком, сохраняя пропорции */
+}
+
+@media screen and (max-width: 1275px) {
+  .container {
+    flex-direction: column-reverse;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0;
+  }
+}
+
+@media screen and (max-width: 975px) {
+  .container {
+    padding: 50px 0;
+  }
+  .textWrapper {
+    align-items: center;
+  }
+  .title {
+    text-align: center;
+  }
+  .text {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .container {
+    padding: 0 0 50px;
+  }
+  .bgcSizeImage {
+    min-width: 500px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .backgroundImage {
+    transform: translateX(70px);
+  }
+  .bgcSizeImage {
+    min-width: 400px;
+  }
 }
