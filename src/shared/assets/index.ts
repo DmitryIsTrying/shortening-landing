@@ -11,3 +11,5 @@ export { default as InstagramLogo } from "./svg/icon-instagram.svg?react";
 export { default as PinterestLogo } from "./svg/icon-pinterest.svg?react";
 export { default as TwitterLogo } from "./svg/icon-twitter.svg?react";
 export { default as Logo } from "./svg/logo.svg?react";
+export { default as Sun } from "./svg/iconLightTheme.svg?react";
+export { default as Moon } from "./svg/iconDarkTheme.svg?react";

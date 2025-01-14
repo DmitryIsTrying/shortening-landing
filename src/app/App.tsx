@@ -7,20 +7,17 @@ import { Statistic } from "@widgets/Statistic";
 
 function App() {
   return (
-    <div className="app light">
+    <div id="app" className="app light">
+      <Header />
       <main>
         <div className="container">
-          <Header />
           <GetStarted />
           <Shortening />
         </div>
-        <div className="container violet">
-          <Statistic />
-        </div>
+        <Statistic className="container violet" />
         <BoostStarted />
       </main>
       <Footer />
-      <div style={{ height: "200px" }}>TEST TEST TEST</div>
     </div>
   );
 }

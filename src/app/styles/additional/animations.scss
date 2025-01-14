@@ -1,0 +1,9 @@
+@keyframes slowMo {
+  to {
+    opacity: 1;
+  }
+}
+
+.slowMo {
+  animation: slowMo 0.5s forwards;
+}

@@ -1,11 +1,9 @@
-.container {
-  display: flex;
-  gap: 150px;
-}
-
 .navigation {
   display: flex;
   gap: 50px;
+
+  width: 100%;
+  margin-left: 80px;
 }
 .item_nav {
   list-style: none;
@@ -19,5 +17,11 @@
     &:hover {
       color: var(--neutral-dark-violet);
     }
+  }
+}
+@media screen and (max-width: 1240px) {
+  .navigation {
+    gap: 25px;
+    margin-left: 40px;
   }
 }

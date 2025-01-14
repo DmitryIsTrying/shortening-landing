@@ -1,4 +1,37 @@
 .btnsContainer {
   display: flex;
-  gap: 50px;
+  gap: 30px;
+  align-items: center;
+}
+
+.themeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+}
+
+.btnTheme {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  transition: opacity 0.3s ease;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+.sunIcon {
+  width: 60px;
+  height: 60px;
+}
+
+@media screen and (max-width: 1240px) {
+  .btnsContainer {
+    gap: 10px;
+    margin-left: 30px;
+    a {
+      padding: 0 10px;
+    }
+  }
 }

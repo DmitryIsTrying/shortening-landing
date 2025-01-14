@@ -9,8 +9,7 @@ export const InfoContainer = () => {
         shorter links
       </h2>
       <p className={cls.text}>
-        Build your brand's recognition and get detailed <br /> insights on how your links are
-        performing.
+        Build your brand's recognition and get detailed insights on how your links are performing.
       </p>
       <Button theme={ButtonTheme.FULLCYAN} isLink>
         Get Started

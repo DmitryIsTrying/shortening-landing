@@ -2,6 +2,7 @@
 @use "./themes/light.scss";
 @use "./additional/global.scss";
 @use "./additional/reset.scss";
+@use "./additional/animations.scss";
 
 .app {
   font: var(--font-l);

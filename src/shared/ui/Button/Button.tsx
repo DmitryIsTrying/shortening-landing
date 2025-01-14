@@ -5,6 +5,8 @@ import { classNames } from "@shared/lib";
 export enum ButtonTheme {
   CLEAR = "CLEAR",
   FULLCYAN = "FULLCYAN",
+  MODAL = "MODAL",
+  CLOSE = "CLOSE",
 }
 
 // Базовый интерфейс для общих пропсов

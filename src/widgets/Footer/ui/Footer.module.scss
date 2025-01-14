@@ -1,11 +1,20 @@
 .container {
   background-color: var(--neutral-dark-violet);
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 100px 100px 120px;
+  gap: 50px;
 }
-.logo {
-  transition: color 0.3s ease;
-  cursor: pointer;
-  color: var(--bg-color);
-  &:hover {
-    color: var(--primary-cyan);
+
+@media screen and (max-width: 845px) {
+  .container {
+    padding: 80px 15px 100px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 40px 15px 60px;
   }
 }

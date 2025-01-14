@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title {
+  color: var(--bg-color);
+  margin-bottom: 15px;
+}
+
+.link {
+  color: var(--neutral-gray);
+  font: var(--font-m);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  &:hover {
+    color: var(--primary-cyan);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .title {
+    font: var(--font-xl);
+    margin-bottom: 5px;
+  }
+  .link {
+    font: var(--font-l);
+  }
+}

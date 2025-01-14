@@ -1,10 +1,15 @@
 import { BrandRecognition, DetailedRecords, FullyCustomizable } from "@shared/assets";
 import { Card } from "./Card/Card";
 import cls from "./Statistic.module.scss";
+import { classNames } from "@shared/lib";
 
-export const Statistic = () => {
+type StatisticProps = {
+  className?: string;
+};
+
+export const Statistic = ({ className }: StatisticProps) => {
   return (
-    <div className={cls.container}>
+    <div className={classNames(cls.container, {}, [className || ""])}>
       <div className={cls.textContainer}>
         <h2 className={cls.titleText}>Advanced Statistics</h2>
         <p className={cls.textText}>

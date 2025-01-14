@@ -1,22 +1,22 @@
-import { LogoType } from "@shared/ui";
-import cls from "./Navigation.module.scss";
 import { classNames } from "@shared/lib";
+import cls from "./Navigation.module.scss";
 
-export const Navigation = () => {
+type NavigationProps = {
+  className?: string;
+};
+
+export const Navigation = ({ className }: NavigationProps) => {
   return (
-    <div className={classNames(cls.container)}>
-      <LogoType fill="#34313D" />
-      <nav className={classNames(cls.navigation)}>
-        <li className={classNames(cls.item_nav)}>
-          <a href="#Features">Features</a>
-        </li>
-        <li className={classNames(cls.item_nav)}>
-          <a href="#Pricing">Pricing</a>
-        </li>
-        <li className={classNames(cls.item_nav)}>
-          <a href="#Resources">Resources</a>
-        </li>
-      </nav>
-    </div>
+    <nav className={classNames(cls.navigation, {}, [className || ""])}>
+      <li className={classNames(cls.item_nav)}>
+        <a href="#Features">Features</a>
+      </li>
+      <li className={classNames(cls.item_nav)}>
+        <a href="#Pricing">Pricing</a>
+      </li>
+      <li className={classNames(cls.item_nav)}>
+        <a href="#Resources">Resources</a>
+      </li>
+    </nav>
   );
 };

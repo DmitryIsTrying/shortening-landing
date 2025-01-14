@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  gap: 20px;
+}
+.logo {
+  transition: color 0.3s ease;
+  cursor: pointer;
+  color: var(--bg-color);
+  &:hover {
+    color: var(--primary-cyan);
+  }
+}
+.logoLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 24px;
+}
