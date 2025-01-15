@@ -11,6 +11,7 @@
   min-height: 100vh;
   min-width: 320px;
   overflow: hidden;
+  transition: var(--parent-transition);
 }
 
 .container {

@@ -16,9 +16,10 @@
   cursor: pointer;
   width: 40px;
   height: 40px;
-  transition: opacity 0.3s ease;
+  transition: var(--parent-transition);
+  opacity: 0;
   &:hover {
-    opacity: 0.7;
+    transform: scale(1.2);
   }
 }
 .sunIcon {

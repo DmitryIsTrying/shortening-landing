@@ -9,7 +9,7 @@ type LogoTypeProps = {
 export const LogoType = ({ fill }: LogoTypeProps) => {
   return (
     <a className={classNames(cls.logo)} href="#main">
-      <Logo fill={fill} />
+      <Logo className={cls.fillLogo} fill={fill} />
     </a>
   );
 };

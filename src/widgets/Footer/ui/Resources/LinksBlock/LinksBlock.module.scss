@@ -7,13 +7,14 @@
 .title {
   color: var(--bg-color);
   margin-bottom: 15px;
+  transition: var(--parent-transition);
 }
 
 .link {
-  color: var(--neutral-gray);
+  color: var(--neutral-grayish-violet);
   font: var(--font-m);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: var(--parent-transition);
   &:hover {
     color: var(--primary-cyan);
   }

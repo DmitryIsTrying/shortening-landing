@@ -1,5 +1,6 @@
 .bgCircle {
   background-color: var(--neutral-blue);
+  transition: var(--parent-transition);
   width: fit-content;
   display: flex;
   padding: 18px;

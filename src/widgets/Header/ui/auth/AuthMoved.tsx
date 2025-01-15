@@ -1,25 +1,28 @@
+import { useTheme } from "@shared/appHooks";
+import { Moon, Sun } from "@shared/assets";
+import { classNames } from "@shared/lib";
 import { Button, ButtonTheme } from "@shared/ui";
 import cls from "./AuthMoved.module.scss";
-import { Moon, Sun } from "@shared/assets";
-import { useState } from "react";
-import { classNames } from "@shared/lib";
+import { AppTheme } from "@shared/model";
 
 type AuthMovedProps = {
   className?: string;
 };
 
 export const AuthMoved = ({ className }: AuthMovedProps) => {
-  const [theme, setTheme] = useState(true);
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <div className={classNames(cls.btnsContainer, {}, [className || ""])}>
       <div className={cls.themeContainer}>
-        {theme ? (
+        {theme === AppTheme.LIGHT ? (
           <Sun
-            onClick={() => setTheme((prev) => !prev)}
-            className={`${cls.btnTheme} ${cls.sunIcon}`}
+            key={"sun"}
+            onClick={toggleTheme}
+            className={`slowMo ${cls.btnTheme} ${cls.sunIcon}`}
           />
         ) : (
-          <Moon onClick={() => setTheme((prev) => !prev)} className={cls.btnTheme} />
+          <Moon key={"moon"} onClick={toggleTheme} className={`slowMo ${cls.btnTheme}`} />
         )}
       </div>
 

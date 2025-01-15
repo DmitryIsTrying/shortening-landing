@@ -13,9 +13,11 @@
   width: 100%;
   padding: 40px 50px;
   border-radius: 10px;
+  transition: var(--parent-transition);
   background-color: var(--neutral-blue); /* Цветной слой */
   position: relative;
   overflow: hidden;
+
   transform: translateY(50%);
 }
 
@@ -36,12 +38,18 @@
 @media screen and (max-width: 620px) {
   .container {
     flex-direction: column;
-    padding: 20px 25px;
+    padding: 35px 25px;
   }
   .container::before {
     background: url("../../../shared/assets/svg/bg-shorten-mobile.svg");
   }
   .btn {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 456px) {
+  .input {
+    height: 30px;
   }
 }

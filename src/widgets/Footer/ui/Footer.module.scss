@@ -4,6 +4,7 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   padding: 100px 100px 120px;
+  transition: var(--parent-transition);
   gap: 50px;
 }
 

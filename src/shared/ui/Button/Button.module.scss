@@ -3,7 +3,7 @@
   padding: 10px 25px;
   border-radius: 32px;
   border: none;
-  transition: opacity 0.3s ease;
+  transition: var(--parent-transition);
   display: flex;
   width: fit-content;
   text-decoration: none;
@@ -25,7 +25,7 @@
 
 .FULLCYAN {
   background-color: var(--primary-cyan);
-  color: white;
+  color: var(--bg-color);
 }
 
 .MODAL {
@@ -39,9 +39,10 @@
   justify-content: space-between;
   opacity: 0;
   span {
+    transition: var(--parent-transition);
     width: 30px;
     height: 3px;
-    background-color: var(--neutral-gray);
+    background-color: var(--primary-violet);
   }
 }
 
@@ -56,13 +57,14 @@
   justify-content: center;
   position: relative;
   span {
+    transition: var(--parent-transition);
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     left: 0;
     width: 30px;
     height: 3px;
-    background-color: var(--neutral-gray);
+    background-color: var(--secondary-red);
   }
   span:nth-of-type(2) {
     opacity: 0;

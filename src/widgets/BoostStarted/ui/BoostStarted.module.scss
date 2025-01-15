@@ -5,6 +5,7 @@
   flex-direction: column;
   gap: 30px;
   padding: 40px 0;
+  transition: var(--parent-transition);
   background-color: var(--neutral-blue);
   position: relative;
 }
@@ -24,6 +25,7 @@
 .title {
   z-index: 5;
   font: var(--font-xl);
+  transition: var(--parent-transition);
   color: var(--neutral-gray);
 }
 @media screen and (max-width: 360px) {

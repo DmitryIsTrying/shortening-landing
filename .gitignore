@@ -28,3 +28,6 @@ dist-ssr
 *.xd
 *.fig
 task
+
+#no secret data
+.env

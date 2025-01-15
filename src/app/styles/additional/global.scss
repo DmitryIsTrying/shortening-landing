@@ -39,6 +39,11 @@
   --font-line-xxl: 1.2;
   --font-xxl: var(--font-weight-large) var(--font-size-xxl) / var(--font-line-xxl)
     var(--font-family-main);
+
+  // transitions
+
+  --parent-transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease,
+    transform 0.3s ease, fill 0.3s ease;
 }
 
 /* Медиа-запросы для более точной настройки */

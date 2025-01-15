@@ -1,6 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
+  transition: var(--parent-transition);
 }
 
 .textContainer {
@@ -11,12 +12,14 @@
 }
 
 .titleText {
-  color: var(--neutral-dark-violet);
+  color: var(--neutral-blue);
   font: var(--font-xxl);
+  transition: var(--parent-transition);
 }
 .textText {
-  color: var(--neutral-blue);
+  color: var(--neutral-grayish-violet);
   font: var(--font-l);
+  transition: var(--parent-transition);
 }
 .containerBlocks {
   display: flex;
@@ -34,6 +37,7 @@
   content: "";
   height: 8px;
   width: 800px;
+  transition: var(--parent-transition);
   background-color: var(--primary-cyan);
 }
 .secondCard {

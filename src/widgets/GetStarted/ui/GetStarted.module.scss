@@ -1,5 +1,5 @@
 .container {
-  padding: 250px 0;
+  padding: 250px 0 0;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -14,12 +14,14 @@
 .title {
   color: var(--neutral-blue);
   font: var(--font-xxl);
+  transition: var(--parent-transition);
 }
 
 .text {
   color: var(--neutral-grayish-violet);
   margin-bottom: 15px;
   font: var(--font-xl);
+  transition: var(--parent-transition);
 }
 
 .backgroundImage {
@@ -41,13 +43,13 @@
     gap: 30px;
     justify-content: center;
     align-items: center;
-    padding: 200px 0;
+    padding: 200px 0 0;
   }
 }
 
 @media screen and (max-width: 975px) {
   .container {
-    padding: 150px 0;
+    padding: 150px 0 0;
   }
   .textWrapper {
     align-items: center;
@@ -62,7 +64,7 @@
 
 @media screen and (max-width: 575px) {
   .container {
-    padding: 120px 0 50px;
+    padding: 120px 0 50px 0;
   }
   .bgcSizeImage {
     min-width: 500px;
