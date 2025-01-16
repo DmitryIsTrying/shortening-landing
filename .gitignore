@@ -30,4 +30,3 @@ dist-ssr
 task
 
 #no secret data
-.env
