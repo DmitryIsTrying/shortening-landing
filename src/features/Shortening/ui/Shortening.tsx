@@ -1,9 +1,13 @@
 import { Button, ButtonTheme, InputWithError } from "@shared/ui";
 import { SubmitHandler, useForm } from "react-hook-form";
-import cls from "./Shortening.module.scss";
 import { useSetShortLinkMutation } from "../api/shorteningApi";
+import { isValidData } from "../lib/isValidData/isValidData";
+import { useMemoizedError } from "../lib/useMemoizedError/useMemoizedError";
+import cls from "./Shortening.module.scss";
+import { UrlBlock } from "./UrlBlock/UrlBlock";
+import { dispatchLoadingEvent } from "@shared/events";
 
-interface ShorteningForm {
+export interface ShorteningForm {
   address: string;
 }
 
@@ -18,38 +22,35 @@ export const Shortening = () => {
     mode: "onSubmit",
   });
 
-  const [setLink, { data }] = useSetShortLinkMutation();
+  const [setLink, { data, error, isLoading }] = useSetShortLinkMutation();
 
+  // Преобразуем ошибку в строку
+  const errorMessage = useMemoizedError(error);
   const onSubmit: SubmitHandler<ShorteningForm> = (data) => {
     // manual validate
-    if (!data.address) {
-      setError("address", {
-        type: "required",
-        message: "Please provide a link",
+    if (isValidData(data, setError)) {
+      dispatchLoadingEvent(true);
+      setLink(data.address).finally(() => {
+        dispatchLoadingEvent(false);
       });
-    } else if (!/^(https?:\/\/)?([^\s]+\.[^\s]+)$/.test(data.address)) {
-      setError("address", {
-        type: "pattern",
-        message: "Please enter a valid URL (e.g., https://example.com)",
-      });
-    } else {
-      setLink(data.address);
     }
   };
-  console.log(data);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={cls.container}>
-      <InputWithError
-        {...register("address")}
-        onChange={() => clearErrors("address")}
-        error={errors.address?.message}
-        className={cls.input}
-        placeholder="Shorten a link here..."
-      />
-      <Button className={cls.btn} theme={ButtonTheme.FULLCYAN}>
-        Shorten It!
-      </Button>
-    </form>
+    <div className={data ? cls.wrapperWithUrl : cls.wrapper}>
+      {data && <UrlBlock originalUrl={data.originalUrl} shortedUrl={data.shortedUrl} />}
+      <form onSubmit={handleSubmit(onSubmit)} className={cls.container}>
+        <InputWithError
+          {...register("address")}
+          onFocus={() => clearErrors("address")}
+          error={errorMessage || errors.address?.message}
+          className={cls.input}
+          placeholder="Shorten a link here..."
+        />
+        <Button disabled={isLoading} className={cls.btn} theme={ButtonTheme.FULLCYAN}>
+          Shorten It!
+        </Button>
+      </form>
+    </div>
   );
 };

@@ -1,6 +1,6 @@
 import { Button, ButtonTheme } from "@shared/ui";
-import { ModalNavigation } from "@widgets/ModalNavigation";
 import { useState } from "react";
+import { ModalNavigation } from "../ModalNavigation/ModalNavigation";
 
 export const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);

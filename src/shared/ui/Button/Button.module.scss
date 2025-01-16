@@ -13,9 +13,12 @@
   font-weight: var(--font-weight-large);
   z-index: 5;
   height: fit-content;
-
   &:hover {
     opacity: 0.7;
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: no-drop;
   }
 }
 

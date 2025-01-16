@@ -7,6 +7,13 @@
   height: 50px;
 }
 
+.wrapper {
+  transform: translateY(50%);
+}
+.wrapperWithUrl {
+  transform: translateY(25%);
+}
+
 .container {
   display: flex;
   gap: 30px;
@@ -17,8 +24,6 @@
   background-color: var(--neutral-blue); /* Цветной слой */
   position: relative;
   overflow: hidden;
-
-  transform: translateY(50%);
 }
 
 .container::before {

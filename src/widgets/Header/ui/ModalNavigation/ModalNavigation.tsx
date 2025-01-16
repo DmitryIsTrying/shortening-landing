@@ -1,10 +1,10 @@
 import { classNames } from "@shared/lib";
 import { Button, ButtonTheme } from "@shared/ui";
-import { AuthMoved } from "@widgets/Header/ui/auth/AuthMoved";
-import { Navigation } from "@widgets/Header/ui/navigation/Navigation";
 import { useRef } from "react";
 import { createPortal } from "react-dom";
 import cls from "./ModalNavigation.module.scss";
+import { AuthMoved } from "../auth/AuthMoved";
+import { Navigation } from "../navigation/Navigation";
 
 interface ModalNavigation {
   handleCloseClick: () => void;

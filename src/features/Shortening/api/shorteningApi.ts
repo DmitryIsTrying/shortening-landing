@@ -1,23 +1,32 @@
 import { baseApi } from "@shared/api";
-import { BaseResponse } from "./shorteningApi.types";
+import { BaseResponse, Urls } from "./shorteningApi.types";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 
 export const shorteningApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    setShortLink: builder.mutation<string, string>({
-      query: (url) => {
-        const shorteningUrl = encodeURIComponent(url);
-        console.log(shorteningUrl);
-
+    setShortLink: builder.mutation<Urls, string>({
+      query: (destination) => {
         return {
           method: "POST",
           url: "",
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
+            "Content-Type": "application/json",
           },
-          body: `url=${shorteningUrl}`,
+          body: { destination },
         };
       },
-      transformResponse: (response: BaseResponse): string => response.result_url,
+      transformResponse: (response: BaseResponse): Urls => ({
+        originalUrl: response.data.destination,
+        shortedUrl: `https://${response.data.id}`,
+      }),
+      transformErrorResponse: (response: FetchBaseQueryError): string => {
+        // Проверяем, что response.data существует и содержит ошибку
+        if (response.data && typeof response.data === "object" && "error" in response.data) {
+          return (response.data as { error: string }).error;
+        }
+        // Возвращаем общее сообщение об ошибке, если структура не соответствует ожидаемой
+        return "An unknown error occurred";
+      },
     }),
   }),
 });

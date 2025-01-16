@@ -4,3 +4,8 @@ declare module "*.svg?react" {
   const content: FC<SVGProps<SVGSVGElement>>;
   export default content;
 }
+declare global {
+  interface DocumentEventMap {
+    loadingAppStateChanged: CustomEvent<{ isLoading: boolean }>;
+  }
+}
