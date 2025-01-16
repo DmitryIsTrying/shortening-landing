@@ -2,57 +2,48 @@ name: Deploy static content to Pages
 
 on:
   push:
-    branches: ["main"] # Запускается при пуше в main
+    branches: ["main"]
 
 permissions:
-  contents: write # Разрешение на запись в репозиторий
+  contents: write
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      # Шаг 1: Клонирование репозитория
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Шаг 2: Установка Node.js
-      - name: Set up Node
+      - name: List files (debug)
+        run: ls -la
+
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20 # Укажите нужную версию Node.js
+          node-version: 20
 
-      # Шаг 3: Установка pnpm
-      - name: Install PNPM
-        run: npm install -g pnpm@8 # Укажите нужную версию pnpm
+      - name: Install pnpm
+        run: npm install -g pnpm@8
 
-      # Шаг 4: Кэширование зависимостей pnpm
+      - name: Check pnpm version
+        run: pnpm --version
+
       - name: Cache pnpm modules
         uses: actions/cache@v3
         with:
           path: ~/.pnpm-store
-          key: pnpm-store-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: pnpm-store-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: |
             pnpm-store-${{ runner.os }}-
 
-      # Шаг 5: Установка зависимостей
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # Шаг 6: Сборка проекта
-      - name: Build
-        run: pnpm run build
+      - name: Build project
+        run: pnpm build
 
-      # Шаг 7: Настройка Git для коммитов
-      - name: Configure Git
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-
-      # Шаг 8: Развертывание в ветку deploy
-      - name: Push to deploy branch
-        run: |
-          git checkout --orphan deploy
-          git rm -rf .
-          git add -f dist
-          git commit -m "Deploy to deploy branch"
-          git push origin deploy --force
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
