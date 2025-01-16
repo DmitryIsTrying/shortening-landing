@@ -29,7 +29,7 @@ The challenge was to build a URL shortening application with the following featu
 
 ### Screenshot
 
-![Screenshot](./screenshot.jpg)
+![screenshot](https://github.com/user-attachments/assets/3d752374-9bf2-47b3-937d-c78214d37436)
 
 ### Links
 
