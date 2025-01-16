@@ -48,5 +48,4 @@ jobs:
           git checkout --orphan deploy
           git rm -rf .
           git add -f dist
-          git commit -m "Deploy to deploy branch"
-          git push origin deploy --force
+          git commit -m "Deploy to deploy
