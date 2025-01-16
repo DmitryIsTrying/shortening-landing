@@ -14,4 +14,5 @@ export default defineConfig({
       "@widgets": path.resolve(__dirname, "src/widgets"),
     },
   },
+  base: "/shortening-landing/",
 });
