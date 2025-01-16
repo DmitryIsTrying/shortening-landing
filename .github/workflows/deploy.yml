@@ -1,50 +1,51 @@
-name: Deploy static content to Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main"] # Запускается при пуше в ветку main
 
 permissions:
-  contents: write
+  contents: write # Разрешение на запись в репозиторий
+  pages: write # Разрешение на публикацию Pages
+  id-token: write # Разрешение на аутентификацию
 
 jobs:
-  deploy:
-    runs-on: ubuntu-24.04
+  build-and-deploy:
+    runs-on: ubuntu-latest # Используем последнюю версию Ubuntu
+
     steps:
+      # Шаг 1: Клонируем репозиторий
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: List files (debug)
-        run: ls -la
-
+      # Шаг 2: Устанавливаем Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 20 # Указываем версию Node.js
 
+      # Шаг 3: Устанавливаем pnpm
       - name: Install pnpm
         run: npm install -g pnpm@9.15.3
 
-      - name: Check pnpm version
-        run: pnpm --version
-
-      - name: Cache pnpm modules
-        uses: actions/cache@v3
-        with:
-          path: ~/.pnpm-store
-          key: pnpm-store-${{ runner.os }}-pnpm-9.15.3-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: |
-            pnpm-store-${{ runner.os }}-pnpm-9.15.3-
-
+      # Шаг 4: Устанавливаем зависимости
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      # Шаг 5: Собираем проект
       - name: Build project
         run: pnpm build
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      # Шаг 6: Настраиваем Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      # Шаг 7: Загружаем артефакты для публикации
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: deploy # Деплой в ветку deploy
+          path: ./dist # Указываем папку с собранными файлами
+
+      # Шаг 8: Публикуем на GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
