@@ -28,24 +28,33 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm@9.15.3
 
-      # Шаг 4: Устанавливаем зависимости
+      # Шаг 4: Кешируем pnpm modules
+      - name: Cache pnpm modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: pnpm-store-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            pnpm-store-${{ runner.os }}-
+
+      # Шаг 5: Устанавливаем зависимости
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # Шаг 5: Собираем проект
+      # Шаг 6: Собираем проект
       - name: Build project
         run: pnpm build
 
-      # Шаг 6: Настраиваем Pages
+      # Шаг 7: Настраиваем Pages
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      # Шаг 7: Загружаем артефакты для публикации
+      # Шаг 8: Загружаем артефакты для публикации
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist # Указываем папку с собранными файлами
 
-      # Шаг 8: Публикуем на GitHub Pages
+      # Шаг 9: Публикуем на GitHub Pages
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
