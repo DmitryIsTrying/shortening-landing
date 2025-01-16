@@ -18,6 +18,7 @@ export const Shortening = () => {
     formState: { errors },
     clearErrors,
     setError,
+    reset,
   } = useForm<ShorteningForm>({
     mode: "onSubmit",
   });
@@ -30,9 +31,13 @@ export const Shortening = () => {
     // manual validate
     if (isValidData(data, setError)) {
       dispatchLoadingEvent(true);
-      setLink(data.address).finally(() => {
-        dispatchLoadingEvent(false);
-      });
+      setLink(data.address)
+        .then(() => {
+          reset();
+        })
+        .finally(() => {
+          dispatchLoadingEvent(false);
+        });
     }
   };
 
